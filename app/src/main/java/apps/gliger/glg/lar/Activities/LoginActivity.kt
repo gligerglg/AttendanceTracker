@@ -1,18 +1,22 @@
-package apps.gliger.glg.lar
+package apps.gliger.glg.lar.Activities
 
+import RoomDB.Repository
+import RoomDB.User
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.hardware.fingerprint.FingerprintManager
-import android.opengl.Visibility
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
-import android.support.design.widget.Snackbar
 import android.support.v4.content.ContextCompat
 import android.view.View
 import android.view.WindowManager
 import android.widget.*
+import apps.gliger.glg.lar.Constant.FunctionSet
+import apps.gliger.glg.lar.Constant.FunctionSet.Companion.setMessage
+import apps.gliger.glg.lar.R
 import com.multidots.fingerprintauth.FingerPrintAuthCallback
 import com.multidots.fingerprintauth.FingerPrintAuthHelper
 import com.multidots.fingerprintauth.AuthErrorCodes
@@ -31,6 +35,9 @@ class LoginActivity : AppCompatActivity(), FingerPrintAuthCallback {
     lateinit var btn_signup : Button
     lateinit var shared : SharedPreferences
     lateinit var editor : SharedPreferences.Editor
+    lateinit var layout: ConstraintLayout
+    var isRegistered = false
+    lateinit var repository: Repository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +51,7 @@ class LoginActivity : AppCompatActivity(), FingerPrintAuthCallback {
 
     private fun functions() {
         //Button SignUp
-        btn_signup.setOnClickListener { startActivity(Intent(applicationContext,SignUp::class.java)) }
+        btn_signup.setOnClickListener { startActivity(Intent(applicationContext, SignUp::class.java)) }
     }
 
     fun init(){
@@ -56,8 +63,12 @@ class LoginActivity : AppCompatActivity(), FingerPrintAuthCallback {
         chk_stay_login = findViewById(R.id.chk_stayLogin)
         btn_login = findViewById(R.id.btn_login)
         btn_signup = findViewById(R.id.btn_signup)
+        layout = findViewById(R.id.layout_login)
         shared = getSharedPreferences("lar_shared", Context.MODE_PRIVATE)
         editor = shared.edit()
+
+        repository = Repository(applicationContext)
+        isRegistered = shared.getBoolean("registered_user",false)
     }
 
     override fun onNoFingerPrintHardwareFound() {}
@@ -87,15 +98,19 @@ class LoginActivity : AppCompatActivity(), FingerPrintAuthCallback {
     }
 
     override fun onAuthSuccess(cryptoObject: FingerprintManager.CryptoObject?) {
-        chk_stay_login
-        setSuccessFingerPrint("You have Successfully Authenticated")
-        startActivity(Intent(applicationContext,MainMenu::class.java))
-        finish()
+        if(isRegistered){
+            checkStayLogin()
+            setSuccessFingerPrint("You have Successfully Authenticated")
+            startActivity(Intent(applicationContext, MainMenu::class.java))
+            finish()
+        }else
+            setErrorFingerPrint("Pleases SignUp before Authenticate")
     }
 
     override fun onResume() {
         super.onResume()
         fingerprint!!.startAuth()
+        isRegistered = shared.getBoolean("registered_user",false)
     }
 
     override fun onStop() {
@@ -105,20 +120,35 @@ class LoginActivity : AppCompatActivity(), FingerPrintAuthCallback {
 
     fun setErrorFingerPrint(message: String){
         txt_fingerprint_status.text = message
-        txt_fingerprint_status.setTextColor(resources.getColor(R.color.colorError))
-        img_fingerprint_status.setImageDrawable(ContextCompat.getDrawable(applicationContext,R.drawable.icon_touchid_error))
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.M)
+            txt_fingerprint_status.setTextColor(ContextCompat.getColor(applicationContext, R.color.colorError))
+        else
+            txt_fingerprint_status.setTextColor(resources.getColor(R.color.colorError))
+        img_fingerprint_status.setImageDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.icon_touchid_error))
     }
 
     fun setSuccessFingerPrint(message: String){
         txt_fingerprint_status.text = message
-        txt_fingerprint_status.setTextColor(resources.getColor(R.color.colorAccent))
-        img_fingerprint_status.setImageDrawable(ContextCompat.getDrawable(applicationContext,R.drawable.icon_touchid_enable))
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.M)
+            txt_fingerprint_status.setTextColor(ContextCompat.getColor(applicationContext, R.color.colorAccent))
+        else
+            txt_fingerprint_status.setTextColor(resources.getColor(R.color.colorAccent))
+        img_fingerprint_status.setImageDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.icon_touchid_enable))
     }
 
     fun loginUser(view : View){
-        checkStayLogin()
-        startActivity(Intent(applicationContext,MainMenu::class.java))
-        finish()
+        if(FunctionSet.isFieldsAllFilled(listOf(txt_username, txt_password))){
+            if(repository.isUserExists(txt_username.text.toString())){
+                if(repository.checkCredentials(User(txt_username.text.toString(),txt_password.text.toString()))){
+                    checkStayLogin()
+                    startActivity(Intent(applicationContext, MainMenu::class.java))
+                    finish()
+                }else
+                    setMessage("Username or Password Invalid",layout)
+            }else
+                setMessage("User doesn't exists!",layout)
+
+        }
     }
 
     private fun checkStayLogin(){

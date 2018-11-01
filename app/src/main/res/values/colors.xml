@@ -4,12 +4,15 @@
     <color name="colorPrimaryDark">#16181a</color>
     <color name="colorAccent">#59a31b</color>
     <color name="colorTextWhite">#fff</color>
+    <color name="colorDisable">#7c8080</color>
     <color name="colorWindowBackground">#2d3033</color>
     <color name="accent_material_dark_1">#6ab12f</color>
+    <color name="color_enabled">#59a31b</color>
     <color name="primary_material_dark" tools:ignore="PrivateResource">#161719</color>
     <color name="background_material_dark" tools:ignore="PrivateResource">#2d3033</color>
     <color name="primary_dark_material_dark">#09090a</color>
     <color name="accent_material_dark">#6ab12f</color>
-    <color name="colorError">#d10c0c</color>
+    <color name="colorError">#fd2617</color>
     <color name="textColorYellow">#ff9e10</color>
+    <color name="colorFoldingBack">#3b3b3b</color>
 </resources>

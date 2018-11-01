@@ -5,16 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_bg"
-    tools:context=".SignUp">
+    android:id="@+id/layout_signup"
+    tools:context=".Activities.SignUp">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/btn_signup"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,69 +23,53 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/logo" />
+            android:src="@drawable/icon" />
 
         <EditText
             android:id="@+id/txt_su_username"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
             android:background="@drawable/text_field_border"
             android:hint="@string/username"
             android:inputType="text"
             android:maxLines="1"
             android:textAlignment="center"
-            android:textSize="18sp"
+            android:textSize="@dimen/_18ssp"
             android:autofillHints=""
             tools:ignore="UnusedAttribute" />
 
         <EditText
-            android:id="@+id/txt_su_email"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/text_field_border"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:autofillHints=""
-            tools:ignore="UnusedAttribute"
-             />
-
-        <EditText
             android:id="@+id/txt_su_password"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_20sdp"
             android:background="@drawable/text_field_border"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:textAlignment="center"
-            android:textSize="18sp"
+            android:textSize="@dimen/_18ssp"
             android:autofillHints="" />
 
         <EditText
             android:id="@+id/txt_su_repeat_password"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_20sdp"
             android:background="@drawable/text_field_border"
             android:hint="@string/repeat_password"
             android:inputType="textPassword"
             android:textAlignment="center"
-            android:textSize="18sp"
+            android:textSize="@dimen/_18ssp"
             android:autofillHints="" />
 
     </LinearLayout>
@@ -95,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="@dimen/_20sdp"
         android:background="@drawable/button_round"
         android:text="@string/signup"
         android:onClick="signUpUser"

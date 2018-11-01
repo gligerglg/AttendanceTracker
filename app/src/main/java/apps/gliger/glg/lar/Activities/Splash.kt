@@ -1,4 +1,4 @@
-package apps.gliger.glg.lar
+package apps.gliger.glg.lar.Activities
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
+import apps.gliger.glg.lar.R
 
 class Splash : AppCompatActivity() {
 
@@ -22,9 +23,9 @@ class Splash : AppCompatActivity() {
         init()
         Handler().postDelayed({
             if(isStayLogged)
-                startActivity(Intent(applicationContext,MainMenu::class.java))
+                startActivity(Intent(applicationContext, MainMenu::class.java))
             else
-                startActivity(Intent(applicationContext,LoginActivity::class.java))
+                startActivity(Intent(applicationContext, LoginActivity::class.java))
         },2000)
     }
 

@@ -1,15 +1,15 @@
-package apps.gliger.glg.lar
+package apps.gliger.glg.lar.Activities
 
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.icu.util.Calendar
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
+import apps.gliger.glg.lar.R
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -43,7 +43,7 @@ class MainMenu : AppCompatActivity() {
 
     fun setTarget(v:View){
         when(v.id){
-            R.id.btn_mnu_setup -> setMessage("Setup")
+            R.id.btn_mnu_setup -> startActivity(Intent(applicationContext, SetupData::class.java))
             R.id.btn_mnu_attendance -> setMessage("Mark Attendance")
             R.id.btn_mnu_edit -> setMessage("Edit")
             R.id.btn_mnu_logout -> logout()
@@ -71,7 +71,7 @@ class MainMenu : AppCompatActivity() {
     private fun logout(){
         editor.putBoolean("stay_login", false)
         editor.commit()
-        startActivity(Intent(applicationContext,LoginActivity::class.java))
+        startActivity(Intent(applicationContext, LoginActivity::class.java))
         finish()
     }
 }
