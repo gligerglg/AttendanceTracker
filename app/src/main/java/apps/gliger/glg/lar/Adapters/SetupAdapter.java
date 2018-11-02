@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import apps.gliger.glg.lar.Fragments.AddSubjectFragment;
 import apps.gliger.glg.lar.Fragments.MapDatesFragment;
-import apps.gliger.glg.lar.Fragments.NotificationSetupFragment;
 
 public class SetupAdapter extends FragmentPagerAdapter {
 
@@ -16,8 +15,7 @@ public class SetupAdapter extends FragmentPagerAdapter {
         super(fm);
         childFragments = new Fragment[]{
             new AddSubjectFragment(),
-            new MapDatesFragment(),
-            new NotificationSetupFragment()
+            new MapDatesFragment()
         };
     }
 

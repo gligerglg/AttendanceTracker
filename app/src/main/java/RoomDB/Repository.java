@@ -78,6 +78,10 @@ public class Repository {
         return false;
     }
 
+    public Subject getSubject(String subjectName){
+        return database.subjectRef().getSubject(subjectName);
+    }
+
 
     /**DayMap Repository Methods*/
     public List<DayMap> getAllDayMaps(){
@@ -105,6 +109,14 @@ public class Repository {
     public void updateDayMap(DayMap dayMap){
         database.mapDayRef().updateDayMap(dayMap);
         Log.i("DayMap","Updated");
+    }
+
+    public boolean isSubjectsAvailableForToday(String day){
+        DayMap dayMap = database.mapDayRef().getTodayDayMap(day);
+        if(dayMap.getSubjectList().size()==0)
+            return false;
+        else
+            return true;
     }
 
     private void initDayMaps(){

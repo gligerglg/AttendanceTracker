@@ -10,24 +10,6 @@ import java.util.List;
 
 @Dao
 public interface MapDao {
-   /* @Insert
-    void addNewMapDay(DayMap dayMap);
-
-    @Update
-    void updateCurrentDay(DayMap dayMap);
-
-    @Query("SELECT * FROM DayMap WHERE day=:day")
-    List<DayMap> getmMapSubjects(String day);
-
-    @Query("SELECT * FROM DayMap WHERE day=:day LIMIT 1")
-    DayMap getmMapDay(String day);
-
-    @Query("SELECT * FROM DayMap")
-    List<DayMap> getAllDayMapData();
-
-    @Delete
-    void deleteMapDay(DayMap dayMap);*/
-
    @Insert
     void addNewDayMap(DayMap dayMap);
    @Update

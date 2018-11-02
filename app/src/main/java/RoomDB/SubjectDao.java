@@ -18,4 +18,6 @@ public interface SubjectDao {
     void updateSubject(Subject subject);
     @Query("DELETE FROM subject WHERE id=:id")
     void deleteSubject(int id);
+    @Query("SELECT * FROM Subject WHERE subjectName=:subjectName")
+    Subject getSubject(String subjectName);
 }

@@ -40,8 +40,8 @@ class SetupData : AppCompatActivity() {
 
             override fun onPageSelected(position: Int) {
                 txt_status.text = resources.getStringArray(R.array.string_status_setup)[position]
-                txt_status_num.text = "Step ${position + 1} / 3"
-                if (position == 2)
+                txt_status_num.text = "Step ${position + 1} / 2"
+                if (position == 1)
                     btn_done.text = resources.getString(R.string.done_conf)
                 else
                     btn_done.text = resources.getString(R.string.next_step)
