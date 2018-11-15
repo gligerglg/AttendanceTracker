@@ -15,4 +15,5 @@
     <color name="colorError">#fd2617</color>
     <color name="textColorYellow">#ff9e10</color>
     <color name="colorFoldingBack">#3b3b3b</color>
+    <color name="primary_material_light">#303136</color>
 </resources>

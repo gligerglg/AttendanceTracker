@@ -1,8 +1,8 @@
 package apps.gliger.glg.lar.Fragments
 
 
-import RoomDB.Repository
-import RoomDB.Subject
+import apps.gliger.glg.lar.RoomDB.Repository
+import apps.gliger.glg.lar.RoomDB.Subject
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -14,6 +14,7 @@ import android.widget.AdapterView
 import android.widget.FrameLayout
 import android.widget.Spinner
 import apps.gliger.glg.lar.Adapters.DayAdapter
+import apps.gliger.glg.lar.Constant.FunctionSet
 import apps.gliger.glg.lar.R
 import kotlin.collections.ArrayList
 
@@ -90,6 +91,7 @@ class MapDatesFragment : Fragment() {
         if(isVisibleToUser){
             updateRecycle(0)
             spinner.setSelection(0)
+            FunctionSet.setEmptyDataString(layout,repository.allSubject.size)
         }
     }
 }

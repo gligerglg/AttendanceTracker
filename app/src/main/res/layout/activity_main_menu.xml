@@ -2,22 +2,11 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_main_menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/menu"
-    android:id="@+id/layout_main_menu"
     tools:context=".Activities.MainMenu">
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="@dimen/_21sdp"
-        android:layout_height="@dimen/_28sdp"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/icon_notification_empty"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
@@ -27,7 +16,6 @@
         android:layout_marginEnd="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:gravity="center"
-        android:text="Powerd by Z Technologies"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -36,11 +24,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/txt_mnu_year"
@@ -51,7 +41,6 @@
             android:gravity="end"
             android:textColor="@color/textColorYellow"
             android:textSize="@dimen/_30ssp"
-            app:layout_constraintBottom_toTopOf="@+id/txt_mnu_monthday"
             app:layout_constraintEnd_toEndOf="@+id/txt_mnu_monthday"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,16 +49,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="@dimen/_8sdp"
-            android:layout_marginBottom="@dimen/_8sdp"
             android:fontFamily="@font/tentram"
             android:gravity="start"
             android:textColor="@color/textColorYellow"
             android:textSize="@dimen/_68ssp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_mnu_year" />
+
+        <TextView
+            android:id="@+id/txt_main_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center"
+            android:maxLines="2"
+            android:textColor="@color/textColorYellow"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_mnu_monthday" />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -78,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -91,8 +96,8 @@
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             android:background="@android:color/transparent"
-            android:src="@mipmap/ic_setup"
             android:onClick="setTarget"
+            android:src="@mipmap/ic_setup"
             app:layout_constraintBottom_toTopOf="@+id/btn_mnu_edit"
             app:layout_constraintEnd_toStartOf="@+id/btn_mnu_attendance"
             app:layout_constraintHorizontal_bias="0.5"
@@ -106,9 +111,9 @@
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:onClick="setTarget"
             android:background="@android:color/transparent"
-            android:src="@mipmap/ic_attendance"
+            android:onClick="setTarget"
+            android:src="@mipmap/ic_attendance_menu"
             app:layout_constraintBottom_toTopOf="@+id/btn_mnu_settings"
             app:layout_constraintEnd_toStartOf="@+id/btn_mnu_logout"
             app:layout_constraintHorizontal_bias="0.5"
@@ -122,9 +127,9 @@
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_8sdp"
-            android:onClick="setTarget"
             android:layout_marginBottom="@dimen/_10sdp"
             android:background="@android:color/transparent"
+            android:onClick="setTarget"
             android:src="@mipmap/ic_logout"
             app:layout_constraintBottom_toTopOf="@+id/btn_mnu_report"
             app:layout_constraintEnd_toEndOf="parent"
@@ -139,8 +144,8 @@
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_8sdp"
-            android:onClick="setTarget"
             android:background="@android:color/transparent"
+            android:onClick="setTarget"
             android:src="@mipmap/ic_edit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_mnu_settings"
@@ -155,8 +160,8 @@
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_8sdp"
-            android:onClick="setTarget"
             android:background="@android:color/transparent"
+            android:onClick="setTarget"
             android:src="@mipmap/ic_settings"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_mnu_report"
@@ -171,9 +176,9 @@
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_8sdp"
-            android:layout_marginBottom="@dimen/_8sdp"
-            android:onClick="setTarget"
+            android:layout_marginBottom="@dimen/_15sdp"
             android:background="@android:color/transparent"
+            android:onClick="setTarget"
             android:src="@mipmap/ic_report"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -181,4 +186,12 @@
             app:layout_constraintStart_toEndOf="@+id/btn_mnu_settings"
             app:layout_constraintTop_toBottomOf="@+id/btn_mnu_logout" />
     </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/_280sdp"
+        />
 </android.support.constraint.ConstraintLayout>

@@ -5,7 +5,7 @@ import android.support.v7.util.DiffUtil;
 
 import java.util.List;
 
-import RoomDB.Subject;
+import apps.gliger.glg.lar.RoomDB.Subject;
 
 public class SubjectDiffCallback extends DiffUtil.Callback {
 

@@ -1,7 +1,7 @@
 package apps.gliger.glg.lar.Activities
 
-import RoomDB.Repository
-import RoomDB.User
+import apps.gliger.glg.lar.RoomDB.Repository
+import apps.gliger.glg.lar.RoomDB.User
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences

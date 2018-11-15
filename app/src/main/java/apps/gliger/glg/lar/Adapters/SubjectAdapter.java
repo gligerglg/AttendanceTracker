@@ -16,8 +16,8 @@ import com.ramotion.foldingcell.FoldingCell;
 
 import java.util.List;
 
-import RoomDB.Repository;
-import RoomDB.Subject;
+import apps.gliger.glg.lar.RoomDB.Repository;
+import apps.gliger.glg.lar.RoomDB.Subject;
 import apps.gliger.glg.lar.R;
 import apps.gliger.glg.lar.Constant.SubjectDiffCallback;
 
@@ -45,7 +45,6 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectH
     @Override
     public void onBindViewHolder(@NonNull final SubjectHolder subjectHolder, final int i) {
         subjectHolder.txt_title.setText(subjectList.get(i).getSubjectName());
-
         subjectHolder.txt_subject.setText(subjectList.get(i).getSubjectName());
         subjectHolder.txt_cc.setText(subjectList.get(i).getCourceCode());
 
@@ -64,8 +63,9 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectH
             subjectHolder.txt_mapping.setText(dayString);
         }
 
-        subjectHolder.txt_attendance.setText("Total Attendance : " + subjectList.get(i).getPresentDays() + " Days\n"
-        + "Total Absent : " + subjectList.get(i).getAbsentDays() + " Days");
+        subjectHolder.txt_attendance.setText("Total Present Days : " + subjectList.get(i).getPresentDays() + "\n"
+        + "Total Absent Days : " + subjectList.get(i).getAbsentDays() + "\n"
+        + "Total Medical Applied Days : " + subjectList.get(i).getMedical());
 
         subjectHolder.foldingCell.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +84,18 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectH
                 updateSubjectItems(repository.getAllSubject());
             }
         });
+
+        subjectHolder.foldingCell.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                try {
+                    repository.deleteSubject(subjectList.get(i).getId());
+                }catch (Exception r){}
+
+                updateSubjectItems(repository.getAllSubject());
+                return false;
+            }
+        });
     }
 
     @Override
@@ -94,8 +106,8 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectH
     public static class SubjectHolder extends RecyclerView.ViewHolder {
 
         TextView txt_title, txt_subject, txt_cc, txt_mapping, txt_attendance, btn_remove;
-        ImageView img_location;
         FoldingCell foldingCell;
+
 
         public SubjectHolder(@NonNull View itemView) {
             super(itemView);
@@ -104,7 +116,6 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectH
             txt_cc = itemView.findViewById(R.id.txt_subview_con_cc);
             txt_mapping = itemView.findViewById(R.id.txt_subview_con_mapping);
             txt_attendance = itemView.findViewById(R.id.txt_subview_con_attendance);
-            img_location = itemView.findViewById(R.id.img_subview_img_loc);
             btn_remove = itemView.findViewById(R.id.btn_remove);
             foldingCell = itemView.findViewById(R.id.folding_cell);
         }

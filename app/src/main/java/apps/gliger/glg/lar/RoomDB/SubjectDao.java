@@ -1,4 +1,4 @@
-package RoomDB;
+package apps.gliger.glg.lar.RoomDB;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
@@ -20,4 +20,6 @@ public interface SubjectDao {
     void deleteSubject(int id);
     @Query("SELECT * FROM Subject WHERE subjectName=:subjectName")
     Subject getSubject(String subjectName);
+    @Query("DELETE FROM Subject")
+    void deleteAllRecords();
 }

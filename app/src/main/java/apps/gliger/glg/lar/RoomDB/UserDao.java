@@ -1,4 +1,4 @@
-package RoomDB;
+package apps.gliger.glg.lar.RoomDB;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
@@ -13,4 +13,7 @@ public interface UserDao {
     void updateCurrentUser(User user);
     @Query("SELECT * FROM user WHERE username=:username LIMIT 1")
     User getCurrentUser(String username);
+
+    @Query("SELECT * FROM User LIMIT 1")
+    User getRegisteredUser();
 }

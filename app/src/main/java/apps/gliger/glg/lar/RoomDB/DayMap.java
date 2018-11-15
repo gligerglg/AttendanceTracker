@@ -1,4 +1,4 @@
-package RoomDB;
+package apps.gliger.glg.lar.RoomDB;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;

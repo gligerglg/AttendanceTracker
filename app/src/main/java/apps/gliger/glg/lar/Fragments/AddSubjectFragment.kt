@@ -1,8 +1,8 @@
 package apps.gliger.glg.lar.Fragments
 
 
-import RoomDB.Repository
-import RoomDB.Subject
+import apps.gliger.glg.lar.RoomDB.Repository
+import apps.gliger.glg.lar.RoomDB.Subject
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -14,6 +14,7 @@ import android.widget.*
 import apps.gliger.glg.lar.Adapters.SubjectAdapter
 import apps.gliger.glg.lar.Constant.FunctionSet
 import apps.gliger.glg.lar.R
+import org.w3c.dom.Text
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -51,6 +52,8 @@ class AddSubjectFragment : Fragment() {
         btn_addSubject = view.findViewById(R.id.btn_addSub_add)
         layout = view.findViewById(R.id.layout_add_subject)
         repository = Repository(activity)
+        FunctionSet.setEmptyDataString(layout,repository.allSubject.size)
+
 
         //Setup Recycler View
         recyclerView = view.findViewById(R.id.recycler_addSubject)
@@ -67,6 +70,9 @@ class AddSubjectFragment : Fragment() {
 
             if(!repository.isSubjectExists(subject)) {
                 repository.addNewSubject(subject)
+                txt_subject_name.setText("")
+                txt_subject_code.setText("")
+                txt_subject_name.requestFocus()
                 subjectAdapter!!.updateSubjectItems(repository.allSubject)
             }
             else
@@ -84,6 +90,7 @@ class AddSubjectFragment : Fragment() {
             if(subjectAdapter!=null) {
                 subjectAdapter!!.updateSubjectItems(repository.allSubject)
                 subjectAdapter!!.notifyDataSetChanged()
+                FunctionSet.setEmptyDataString(layout,repository.allSubject.size)
             }
         }
     }

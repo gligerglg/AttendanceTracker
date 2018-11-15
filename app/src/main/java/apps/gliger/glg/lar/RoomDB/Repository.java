@@ -1,4 +1,4 @@
-package RoomDB;
+package apps.gliger.glg.lar.RoomDB;
 
 import android.annotation.SuppressLint;
 import android.arch.persistence.room.Room;
@@ -51,6 +51,10 @@ public class Repository {
             return true;
     }
 
+    public User getCurrentRegisteredUser(){
+        return database.dataRef().getRegisteredUser();
+    }
+
 
     /**Subject Repository Methods*/
     public void addNewSubject(Subject subject){
@@ -80,6 +84,10 @@ public class Repository {
 
     public Subject getSubject(String subjectName){
         return database.subjectRef().getSubject(subjectName);
+    }
+
+    public void deleteAllSubjects(){
+        database.subjectRef().deleteAllRecords();
     }
 
 
@@ -113,10 +121,13 @@ public class Repository {
 
     public boolean isSubjectsAvailableForToday(String day){
         DayMap dayMap = database.mapDayRef().getTodayDayMap(day);
-        if(dayMap.getSubjectList().size()==0)
-            return false;
-        else
-            return true;
+        try{
+            if(dayMap.getSubjectList().size()==0)
+                return false;
+            else
+                return true;
+        }catch (Exception ex){}
+        return false;
     }
 
     private void initDayMaps(){
@@ -128,5 +139,30 @@ public class Repository {
         addNewDayMap(new DayMap("Friday",subjects));
         addNewDayMap(new DayMap("Saturday",subjects));
         addNewDayMap(new DayMap("Sunday",subjects));
+    }
+
+    public void removeAllDayMaps(){
+        database.mapDayRef().deleteAllRecords();
+    }
+
+    /**Medical Repository Methods*/
+    public void addNewMedical(Medical medical){
+        database.medicalRef().addMedical(medical);
+    }
+
+    public void removeMedical(Medical medical){
+        database.medicalRef().deleteMedical(medical);
+    }
+
+    public List<Medical> getAllMedicals(){
+        return database.medicalRef().getAllMedicals();
+    }
+
+    public void updateMedical(Medical medical){
+        database.medicalRef().updateMedical(medical);
+    }
+
+    public void removeAllMedicals(){
+        database.medicalRef().deleteAllRecords();
     }
 }

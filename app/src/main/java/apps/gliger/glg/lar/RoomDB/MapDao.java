@@ -1,4 +1,4 @@
-package RoomDB;
+package apps.gliger.glg.lar.RoomDB;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
@@ -20,5 +20,6 @@ public interface MapDao {
     List<DayMap> getAllDayMaps();
    @Query("SELECT * FROM DayMap WHERE day=:day")
     DayMap getTodayDayMap(String day);
-
+    @Query("DELETE FROM DayMap")
+    void deleteAllRecords();
 }

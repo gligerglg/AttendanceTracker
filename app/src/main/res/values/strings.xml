@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LAR</string>
+    <string name="app_name">Attendance Tracker</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="stay_login">Stay Login</string>
@@ -16,6 +16,7 @@
     <string name="remove">Remove</string>
     <string name="mapping_days">Mapping Days</string>
     <string name="location_data">Location Data</string>
+    <string name="no_data_to_show">No Data to Show!</string>
 
     <string-array name="string_status_setup">
         <item>Add Subjects</item>
@@ -32,4 +33,86 @@
         <item>Saturday</item>
         <item>Sunday</item>
     </string-array>
+
+    <string-array name="string_status_editor">
+        <item>Subject Data Editor</item>
+        <item>Medical Data Editor</item>
+    </string-array>
+
+    <string-array name="string_report_status">
+        <item>Subject Report</item>
+    </string-array>
+
+    <string name="str_about">\n
+        Step 1 : Add Subjects\n
+        Step 2 : Map Subjects with Days\n
+        Step 3 : Set Notification\n
+        Step 4 : Set Today Attendance\n
+        Step 5 : Edit Subject or Medical Data\n
+        Step 6 : Change Settings\n
+        Step 7 : Developer Information\n\n\n
+        Step 1 : Add Subjects\n\n
+        \t\tAt the first step you must add your subject information to the application.
+        Goto [Main Menu] and tap on the [Setup] (First button on the first row) button and you are able
+        to add new subjects using Add Subject view. Add Subject name and the Subject code the press
+        on the [ADD] button to add a new subject to database. If you are done adding new subjects
+        press on [NEXT STEP] button.\n\n\n
+
+        Step 2 : Map Subjects with Days\n\n
+        \t\tSecond step of the application is Mapping current subjects with days of week. Tap on the
+        drop down menu in the top of the UI and select a day of week. At the bottom of the menu you are able
+        to see all the subjects you have entered. Press on each subject if it should map with current selected date.
+        All selected subjects will be highlighted. Again select a different day from the drop down menu and map subjects.
+        Once you are done tap on [DONE CONFIGURATIONS]\n\n\n
+
+        Step 3 : Set Notification\n\n
+        \t\tSometimes you forget to track your attendance daily because of some cases. To overcome this problem this application
+        facilitate a service called Reminder. To add a reminder for a specific time of a day, goto [Settings] UI and tap on
+        [Set Reminder] or the Switch then a time picker dialog will pop up. Choose a time from the picker and press [OK] to confirm the
+         time then the app automatically notify you to mark your attendance daily at the specific time you have set up. You can remove
+        the notification by tapping on the same switch or [Set Reminder] easily\n\n\n
+
+        Step 4 : Set Today Attendance\n\n
+        \t\tEach and every day you have to mark your attendance to analyze your attending pattern. It is just a simple case. Goto [Main Menu]
+        and tap on the [Mark Attendance] (Second button on first row) and you will have another UI to set your attendance. In this UI
+        you can have mapped subjects and tap once on each to mark as [Present] or tap again to mark as a [Medical Applied Date] or tap again
+        to mark the subject as a [Absent] one. By default all the subjects are considered as absents. Once you are done tap on [Submit] to
+        record daily attendance. Once you are done, you are unable to mark attendance for the current day. If you feel there must be a mistake
+        of adding data, you are able to change your data manually (Step 5)\n\n\n
+
+        Step 5 : Edit Subject or Medical Data\n\n
+        \t\tIn this section you are able to change your Subject or Medical data. Goto [Main Menu] and tap on [Edit Data] button (First button on second row)
+        By swiping you can have different UI for change subject or medical data. Tap on each and change values.\n\n\n
+
+        Step 6 : Change Settings\n\n
+        \t\tIn the Setting UI you are able to change your current username, current password, set a reminder and also clear the data from database.
+        Be careful because all the data will be lost when you confirm the notification dialog.\n\n\n
+
+        Step 7 : Developer Information\n\n
+        \tH.K.Gayan Lakshitha Gunarathna\n
+        \tgliger.glg@gmail.com\n\n
+    </string>
+    <string name="tap_on_each_subjects_to_mark_it_as_a_present_medical_applied_or_absent_subject_ntap_1_present_subject_ntap_2_medical_applied_subject_ntap_3_or_leave_absent_subject">Tap on each subjects to mark it as a Present, Medical applied or Absent subject Tap 1 : Present Subject Tap 2 : Medical Applied Subject Tap 3 or leave : Absent Subject</string>
+    <string name="mark_daily_attendance">Mark Daily Attendance</string>
+    <string name="to_add_a_new_subject_fill_the_subject_name_and_course_code_and_tap_on_add_button">To add a new Subject, Fill the Subject Name and Course Code and tap on ADD button</string>
+    <string name="to_map_a_subject_with_a_date_select_a_date_from_drop_down_menu_and_tap_on_a_subject_for_mapping">To map a subject with a date, Select a date from drop-down menu and tap on a subject for mapping</string>
+    <string name="java">Java</string>
+    <string name="csc1111">CSC1111</string>
+    <string name="setup">Setup</string>
+    <string name="main_menu_navigation">Main Menu Navigation</string>
+    <string name="mark_attendance">Mark Attendance</string>
+    <string name="logout">Logout</string>
+    <string name="edit_data">Edit Data</string>
+    <string name="settings">Settings</string>
+    <string name="reports">Reports</string>
+    <string name="subject_tracking">Subject Tracking</string>
+    <string name="attendance_tracking">Attendance Tracking</string>
+    <string name="report_generator">Report Generator</string>
+    <string name="notification_system">Notification System</string>
+    <string name="subject_amp_medical_data_editor"><![CDATA[Subject & Medical Data Editor]]></string>
+    <string name="tap_on_edit_data_in_main_menu">Tap on Edit Data in Main Menu</string>
+    <string name="tap_on_each_subject_on_subject_editor_ui_or_each_medical_in_medical_editor_ui_nadd_data_to_fields_and_tap_on_submit_button">Tap on each subject on Subject Editor UI or each medical in Medical editor UI Add data to fields and tap on Submit button</string>
+    <string name="attendance_tracker">Attendance\nTracker</string>
+    <string name="services_of_the_app">Services of the App</string>
+    <string name="product">Gliger Creations \ngliger.glg@gmail.com</string>
 </resources>

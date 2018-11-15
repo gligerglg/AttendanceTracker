@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="apps.gliger.glg.lar">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -9,6 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppThemeDark">
+        <receiver android:name=".BroadcastReceivers.AlarmReceiver" />
+        <receiver android:name=".BroadcastReceivers.DeviceBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name=".Activities.Splash"
             android:screenOrientation="portrait"
@@ -25,8 +36,14 @@
         <activity
             android:name=".Activities.SignUp"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activities.MainMenu" />
-        <activity android:name=".Activities.SetupData"></activity>
+        <activity android:name=".Activities.MainMenu" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.SetupData" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.EditorActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.ActivityReport" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.About" android:screenOrientation="portrait"></activity>
+        <activity android:name=".Activities.IntroActivity" android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

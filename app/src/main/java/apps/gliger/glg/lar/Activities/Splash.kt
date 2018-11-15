@@ -13,6 +13,7 @@ class Splash : AppCompatActivity() {
 
     lateinit var shared : SharedPreferences
     var isStayLogged = false
+    var isFirstTime = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,16 +23,22 @@ class Splash : AppCompatActivity() {
 
         init()
         Handler().postDelayed({
-            if(isStayLogged)
-                startActivity(Intent(applicationContext, MainMenu::class.java))
-            else
-                startActivity(Intent(applicationContext, LoginActivity::class.java))
+            if(isFirstTime){
+                startActivity(Intent(applicationContext, IntroActivity::class.java).putExtra("first_time",true))
+            }
+            else{
+                if(isStayLogged)
+                    startActivity(Intent(applicationContext, MainMenu::class.java))
+                else
+                    startActivity(Intent(applicationContext, LoginActivity::class.java))
+            }
         },2000)
     }
 
     fun init(){
         shared = getSharedPreferences("lar_shared", Context.MODE_PRIVATE)
         isStayLogged = shared.getBoolean("stay_login",false)
+        isFirstTime = shared.getBoolean("first_time",true)
     }
 
     override fun onPause() {

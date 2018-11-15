@@ -19,6 +19,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-DEBUG'
+        }
     }
 }
 
@@ -47,5 +52,11 @@ dependencies {
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
     //GSON Library
     implementation 'com.google.code.gson:gson:2.8.5'
+    //Date Time Picker
+    implementation 'com.code-troopers.betterpickers:library:3.1.0'
+    //Progress
+    implementation 'com.github.lzyzsd:circleprogress:1.2.1'
+    //AppIntro
+    implementation 'com.github.paolorotolo:appintro:v4.1.0'
 
 }

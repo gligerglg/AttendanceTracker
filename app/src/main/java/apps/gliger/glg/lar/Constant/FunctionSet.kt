@@ -5,6 +5,8 @@ import android.support.design.widget.Snackbar
 import android.text.TextUtils
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import java.util.*
 
 class FunctionSet {
@@ -38,5 +40,11 @@ class FunctionSet {
 
             return null.toString()
         }
+
+        fun setEmptyDataString(layout: View,size : Int){
+            if(size==0)
+                Snackbar.make(layout,"There is no data to display!",Snackbar.LENGTH_SHORT).show()
+        }
+
     }
 }

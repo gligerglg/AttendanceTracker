@@ -1,4 +1,4 @@
-package RoomDB;
+package apps.gliger.glg.lar.RoomDB;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -26,10 +26,16 @@ public class Subject {
     private int presentDays =  0;
     @ColumnInfo(name = "absent")
     private int absentDays = 0;
+    @ColumnInfo(name = "medical")
+    private int medical = 0;
 
     public Subject(String subjectName, String courceCode) {
         this.subjectName = subjectName;
         this.courceCode = courceCode;
+    }
+
+    @Ignore
+    public Subject() {
     }
 
     @Ignore
@@ -46,12 +52,13 @@ public class Subject {
     }
 
     @Ignore
-    public Subject(String subjectName, String courceCode, Double latitude, Double longitude, List<String> mapDayList, int presentDays, int absentDays) {
+    public Subject(String subjectName, String courceCode, Double latitude, Double longitude, List<String> mapDayList, int presentDays, int absentDays, int medicals) {
         this.subjectName = subjectName;
         this.courceCode = courceCode;
         this.mapDayList = mapDayList;
         this.presentDays = presentDays;
         this.absentDays = absentDays;
+        this.medical = medicals;
     }
 
     public int getId() {
@@ -100,5 +107,13 @@ public class Subject {
 
     public void setAbsentDays(int absentDays) {
         this.absentDays = absentDays;
+    }
+
+    public int getMedical() {
+        return medical;
+    }
+
+    public void setMedical(int medical) {
+        this.medical = medical;
     }
 }
