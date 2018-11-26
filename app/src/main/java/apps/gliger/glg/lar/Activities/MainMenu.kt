@@ -23,6 +23,9 @@ import apps.gliger.glg.lar.Constant.FunctionSet.Companion.setMessage
 import apps.gliger.glg.lar.R
 import apps.gliger.glg.lar.RoomDB.Medical
 import apps.gliger.glg.lar.SettingsActivity
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -37,6 +40,7 @@ class MainMenu : AppCompatActivity() {
     lateinit var repository: Repository
     lateinit var layout: ConstraintLayout
     lateinit var today: String
+    lateinit var adView: AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +65,12 @@ class MainMenu : AppCompatActivity() {
         repository = Repository(applicationContext)
         layout = findViewById(R.id.layout_main_menu)
         today = FunctionSet.convertDayToString(Calendar.getInstance().get(Calendar.DAY_OF_WEEK))
+
+        /**
+         * Admob banner Add**/
+        MobileAds.initialize(this, resources.getString(R.string.admob_testAppId))
+        adView = findViewById(R.id.adView_mainMenu)
+        adView.loadAd(AdRequest.Builder().build())
     }
 
     fun setTarget(v: View) {

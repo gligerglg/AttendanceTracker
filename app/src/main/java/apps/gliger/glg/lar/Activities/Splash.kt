@@ -3,11 +3,14 @@ package apps.gliger.glg.lar.Activities
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.transition.Fade
 import android.view.WindowManager
 import apps.gliger.glg.lar.R
+import kotlinx.android.synthetic.main.activity_splash.*
 
 class Splash : AppCompatActivity() {
 
@@ -21,6 +24,15 @@ class Splash : AppCompatActivity() {
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_splash)
 
+       /* if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            val fade = Fade()
+            fade.excludeTarget(android.R.id.statusBarBackground,true)
+            fade.excludeTarget(android.R.id.navigationBarBackground,true)
+            fade.excludeTarget(img_splash,true)
+            window.exitTransition = fade
+            window.enterTransition = fade
+        }*/
+
         init()
         Handler().postDelayed({
             if(isFirstTime){
@@ -33,6 +45,7 @@ class Splash : AppCompatActivity() {
                     startActivity(Intent(applicationContext, LoginActivity::class.java))
             }
         },2000)
+
     }
 
     fun init(){

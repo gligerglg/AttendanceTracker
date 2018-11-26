@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Attendance Tracker</string>
+    <string name="app_name">Save Me</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="stay_login">Stay Login</string>
@@ -112,7 +112,16 @@
     <string name="subject_amp_medical_data_editor"><![CDATA[Subject & Medical Data Editor]]></string>
     <string name="tap_on_edit_data_in_main_menu">Tap on Edit Data in Main Menu</string>
     <string name="tap_on_each_subject_on_subject_editor_ui_or_each_medical_in_medical_editor_ui_nadd_data_to_fields_and_tap_on_submit_button">Tap on each subject on Subject Editor UI or each medical in Medical editor UI Add data to fields and tap on Submit button</string>
-    <string name="attendance_tracker">Attendance\nTracker</string>
+    <string name="attendance_tracker">Save Me\n(Attendance Tracker)</string>
     <string name="services_of_the_app">Services of the App</string>
     <string name="product">Gliger Creations \ngliger.glg@gmail.com</string>
+
+    <string name="admob_appId">ca-app-pub-2629585729370619~6047776753</string>
+    <string name="admob_mainmenu_banner">ca-app-pub-2629585729370619/5518413278</string>
+    <string name="admob_settings_banner">ca-app-pub-2629585729370619/9533270783</string>
+    <string name="admob_fullscreen_report">ca-app-pub-2629585729370619/2873736930</string>
+
+    <string name="admob_testId">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_test_full_screen">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_testAppId">ca-app-pub-3940256099942544~3347511713</string>
 </resources>

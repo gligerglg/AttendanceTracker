@@ -4,7 +4,10 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -47,9 +50,10 @@ public class SubjectEditorAdapter extends RecyclerView.Adapter<SubjectEditorAdap
         repository = new Repository(context);
     }
 
-    public SubjectEditorAdapter(List<Subject> subjectList, View view) {
+    public SubjectEditorAdapter(List<Subject> subjectList, View view,Context context) {
         this.subjectList = subjectList;
         this.view = view;
+        this.context = context;
         init_components();
         isReport = true;
     }
@@ -86,6 +90,13 @@ public class SubjectEditorAdapter extends RecyclerView.Adapter<SubjectEditorAdap
                     txt_medical.setText(""+(int)medical);
                     txt_total.setText(""+(int)total);
                     txt_avg.setText(""+(int)avg+"%");
+
+                    if(avg>80)
+                        colorReport(R.color.color_enabled);
+                    else if(avg>60)
+                        colorReport(R.color.textColorYellow);
+                    else
+                        colorReport(R.color.colorError);
                 }
                 else {
                     isEdited = false;
@@ -138,6 +149,22 @@ public class SubjectEditorAdapter extends RecyclerView.Adapter<SubjectEditorAdap
             }
         });
     }
+
+    private void colorReport(int color){
+       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+           txt_avg.setTextColor(context.getColor(color));
+           progress_absent.setInnerBackgroundColor(context.getColor(color));
+           progress_medical.setInnerBackgroundColor(context.getColor(color));
+           progress_present.setInnerBackgroundColor(context.getColor(color));
+       }
+       else {
+           txt_avg.setTextColor(ContextCompat.getColor(context, color));
+           progress_absent.setFinishedStrokeColor(ContextCompat.getColor(context, color));
+           progress_medical.setFinishedStrokeColor(ContextCompat.getColor(context, color));
+           progress_present.setFinishedStrokeColor(ContextCompat.getColor(context, color));
+       }
+    }
+
 
     @Override
     public int getItemCount() {

@@ -13,6 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppThemeDark">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_testAppId"/>
+
         <receiver android:name=".BroadcastReceivers.AlarmReceiver" />
         <receiver android:name=".BroadcastReceivers.DeviceBootReceiver">
             <intent-filter>
